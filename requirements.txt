@@ -4,6 +4,10 @@ psycopg2==2.9.5
 <<<<<<< HEAD
 python-decouple==3.8
 =======
+<<<<<<< HEAD
+python-decouple==3.8
+=======
+>>>>>>> master
 >>>>>>> master
 pytz==2023.2
 sqlparse==0.4.3
