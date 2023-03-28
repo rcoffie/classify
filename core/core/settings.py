@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # installed apps 
     'pages',
+    'item_engine',
 ]
 
 MIDDLEWARE = [
