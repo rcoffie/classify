@@ -10,7 +10,6 @@ class Category(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name_plural = "Categories",
         indexes = [models.Index(fields=['name'])]
         ordering = ['-created_on']
         
