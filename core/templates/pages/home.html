@@ -26,30 +26,23 @@
     </div>
 
     <div class="row m-4">
-        <div class="col-md-4 ">
+      <h3 class="text-center">New Items</h3>
+      {% for each in items%}
+      
+        <a href="" class="col-md-4 text-decoration-none "  >
             <div class="card shadow-lg border-secondary">
-                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea"/>
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              
+                <img style="height: 250px;"src="{{ each.item_image.url }}" class="card-img-top" alt="{{each.name}}"/>
+                <h5 class="card-title text-center text-primary">{{each.name}}</h5>
+                <div class="card-body text-secondary">
+                  <p class="card-text">{{each.description| truncatechars:80}}</p>
+                  <small class="text-dark">GH₵ {{each.price}} </small>
                 </div>
+              
               </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card shadow-lg border-secondary">
-                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea"/>
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card shadow-lg border-secondary">
-                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea"/>
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-        </div>
+            </a>
+        {% endfor %}
+      
     </div>
 
     <!-- Category Section --> 
