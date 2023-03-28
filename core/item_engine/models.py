@@ -26,7 +26,7 @@ class Item(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     # In future set image path and default image
-    Image = models.ImageField(null=True, blank=True)
+    Image = models.ImageField(upload_to='item_images',null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
