@@ -32,6 +32,7 @@ class Item(models.Model):
 
     class Meta:
         indexes = [models.Index(fields=["name", "price", "category"])]
+        ordering = ["-created_on"]
 
     def __str__(self):
         return self.name
