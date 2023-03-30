@@ -1,11 +1,43 @@
 {% extends 'base.html' %}
-
+{% load humanize %} 
 {% block content %}
-
 <div class="container">
     <div class="row">
-        {{item.name}}
+        <div class="col-md-7 my-4">
+            <div class="bg-image hover-overlay ripple">
+                <img src="{{item.item_image.url}}" class="img-fluid" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(44, 45, 46, 0.2);"></div>
+                </a>
+              </div>
+              <div class="shadow-lg border-start border-5 my-4 p-4">
+                <h4 class="text-center">{{item.name}}</h4>
+               {{item.description}}
+               <hr>
+               <p>GH₵ {{item.price}}</p>
+               <p class=""><span><small>{{item.created_on|naturaltime}}</small></span>   </p>
+               <span> <input class="btn btn-primary" type="button" value="contact seller"></span>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <h1>Sidebar</h1>
+        </div>
     </div>
-</div>
 
+    {% if related_items %}
+    <div class="row">
+        <h3 class="text-center">Related Post</h3>
+        {% for each in related_items %}
+        <a href="{% url 'item_detail' each.id %}" class="col-md-3 text-decoration-none text-muted mx-2">
+            <div class="card" style="width: 18rem;">
+                <img src="{{each.item_image.url}}" class="card-img-top" alt="Sunset Over the Sea"/>
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div> 
+            </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
 {% endblock %}

@@ -5,6 +5,6 @@ from . models import Category, Item
 
 def item_detail(request, id):
     item = get_object_or_404(Item, id=id)
-    related_items = Item.objects.filter(category=item.category,)
+    related_items = Item.objects.filter(category=item.category,).exclude(id=id)[0:3]
     context = {'item':item, 'related_items':related_items,}
     return render(request, 'item_engine/item-detail.html',context)
