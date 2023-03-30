@@ -15,7 +15,8 @@
                {{item.description}}
                <hr>
                <p>GH₵ {{item.price}}</p>
-               <p><span><small>{{item.created_on|naturaltime}}</small></span></p>
+               <p class=""><span><small>{{item.created_on|naturaltime}}</small></span>   </p>
+               <span> <input class="btn btn-primary" type="button" value="contact seller"></span>
               </div>
         </div>
         <div class="col-md-3">
@@ -23,10 +24,11 @@
         </div>
     </div>
 
+    {% if related_items %}
     <div class="row">
         <h3 class="text-center">Related Post</h3>
         {% for each in related_items %}
-        <a href="" class="col-md-3 text-decoration-none text-muted mx-2">
+        <a href="{% url 'item_detail' each.id %}" class="col-md-3 text-decoration-none text-muted mx-2">
             <div class="card" style="width: 18rem;">
                 <img src="{{each.item_image.url}}" class="card-img-top" alt="Sunset Over the Sea"/>
                 <div class="card-body">
@@ -36,5 +38,6 @@
             </a>
         {% endfor %}
     </div>
+    {% endif %}
 </div>
 {% endblock %}
