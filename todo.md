@@ -22,6 +22,7 @@
     * Display items on homepage item limit should be 6 items 
     * Display categories on homepage 
     * Create item detail page &rarr; item_engine_app 
+    * Add related items-section, add contact seller button or link 
     * create user_engine app 
     * create register and login page
     * configure login_url , login_redirect_url, logout_redirect_url 
