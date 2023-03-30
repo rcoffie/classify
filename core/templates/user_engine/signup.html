@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 m-auto my-5 shadow-lg border rounded">
+            <h2 class="text-center">Sign up</h2>
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+
+                <div class="">
+                    <label for="exampleFormControlInput1" class="form-label">{{field.label_tag }}</label>
+                    {{field}}
+                   <!-- {% if field.help_text %}
+                    <small style="color: grey">{{ field.help_text }}</small>
+                    {% endif %} -->
+                    {% for error in field.errors %}
+                    <p style="color: red">{{ error }}</p> 
+                    
+                    {% endfor %}
+                </div>
+
+                {% endfor %}
+                <button class="btn btn-success my-4" type="submit">Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
