@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Classify</title>
+    <style>
+      .asteriskField {
+          display: none;
+      }
+  </style>
   </head>
   <body>
     <!-- Navbar -->
@@ -125,6 +130,14 @@
             </li>
           </ul>
         </div>
+        <a class="text-reset me-3 text-decoration-none" href="{% url 'login' %}">
+          <i class="fas fa-sign-in"></i>
+          login
+        </a>
+        <a class="text-reset me-3 text-decoration-none" href="{% url 'signup' %}">
+          <i class="fas fa-user-plus"></i>
+          Signup
+        </a>
       </div>
       <!-- Right elements -->
     </div>
