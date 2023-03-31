@@ -18,7 +18,7 @@
     * create superuser 
     * add item model 
     * run migration for item model 
-- [ ]     * configure django media files 
+    * configure django media files 
     * Display items on homepage item limit should be 6 items 
     * Display categories on homepage 
     * Create item detail page &rarr; item_engine_app 
@@ -27,7 +27,12 @@
     * create register and login page
     * create, add item form , enable login_redirect on add item page
     * create add edit and delete item feature. 
-    * add , add item button to the menu , restrict auth users from seeing signin and login button 
+    * add , add item button to the menu , restrict auth users from seeing signIn and login button.
+    * Dashboard for Authenticated users,
+    * list items posted or created by requested user 
+    * create a dashboard link in navbar
+    * Allow auth user to delete 
+    * Allow user to edit item posted, create separate form 
     * configure login_url , login_redirect_url, logout_redirect_url 
 * Models
     * Category fields  
