@@ -1,18 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import login, authenticate
 from .forms import SignUpForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from item_engine.models import Category, Item
 
 
 # Create your views here.
 
 @login_required(login_url='signup')
 def dashboard(request):
-
-    return render(request, 'user_engine/dashboard.html')
+	items = Item.objects.filter(created_by=request.user)
+	context = {'items':items}
+	return render(request, 'user_engine/dashboard.html',context)
 
 def signup(request):
     if request.method == 'POST':
