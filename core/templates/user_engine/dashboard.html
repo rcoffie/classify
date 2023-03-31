@@ -47,15 +47,15 @@
                         {% endif %}
                     </td>
                     <td>
-                        <a href="" type="button" class="btn btn-link btn-rounded text-decoration-none">
+                        <a href="{% url 'edit_item' each.id %}" type="button" class="btn btn-link btn-rounded text-decoration-none">
                             <i class="fa fa-pencil-square " aria-hidden="true"></i>
                          </a>
-                         <a href="" type="button" class="btn btn-link btn-rounded text-decoration-none">
+                         <a href="{% url 'item_detail' each.id %}" type="button" class="btn btn-link btn-rounded text-decoration-none">
                             <i class="fa fa-eye text-success" aria-hidden="true"></i>
                          </a>
                          
-                      <a href="" type="button" class="btn btn-link btn-rounded text-decoration-none">
-                         <i  class="fa fa-trash text-danger" aria-hidden="true"></i>
+                      <a href="{% url 'delete_item' each.id %}" type="button" class="btn btn-link btn-rounded text-decoration-none">
+                         <i  class="fa fa-trash text-danger " onclick="return confirm('Are you sure?')" aria-hidden="true"></i>
                       </a>
 
                     </td>

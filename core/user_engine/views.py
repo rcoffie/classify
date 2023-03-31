@@ -6,6 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from item_engine.models import Category, Item
+from item_engine.forms import EditItemForm
 
 
 # Create your views here.

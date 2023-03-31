@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from . models import Category, Item
-from .forms import ItemForm
+from .forms import ItemForm, EditItemForm
 # Create your views here.
 
 
@@ -24,3 +24,23 @@ def add_item(request):
             form = ItemForm()
     context = {'form':form}
     return render(request, 'item_engine/add-item-form.html',context)
+
+def edit_item(request, id=id):
+    form = EditItemForm()
+    item = get_object_or_404(Item, id=id)
+    if request.method == 'POST':
+        form = EditItemForm(request.POST, request.FILES,instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+    else:
+        form = EditItemForm(instance=item)
+    context = {'form':form}
+    return render(request, 'item_engine/edit-item-form.html',context)
+
+
+def delete_item(request, id):
+    item = get_object_or_404(Item, id=id)
+    item.delete()
+    return redirect('dashboard')
+    print("item deleted")
