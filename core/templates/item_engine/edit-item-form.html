@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 m-4">
+            <h3 class="text-center">{{item.name}}</h3>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+               {{form|crispy}}
+               {% if form.errors or form.non_fields_errors %}
+               {% for field in form %}
+                {{ fields.errors }}
+               {% endfor %}
+               {% endif %}
+                <button class="btn btn-success my-4" type="submit">Add Item</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
