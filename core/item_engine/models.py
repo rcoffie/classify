@@ -24,7 +24,7 @@ class Item(models.Model):
     price = models.FloatField()
     is_sold = models.BooleanField(default=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     # In future set image path and default image
     item_image = models.ImageField(upload_to='item_images',null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
