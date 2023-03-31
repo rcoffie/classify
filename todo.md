@@ -18,7 +18,7 @@
     * create superuser 
     * add item model 
     * run migration for item model 
-    * configure django media files 
+- [ ]     * configure django media files 
     * Display items on homepage item limit should be 6 items 
     * Display categories on homepage 
     * Create item detail page &rarr; item_engine_app 
