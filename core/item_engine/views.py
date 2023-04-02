@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, redirect, render
-
+from django.contrib import messages
 from .forms import EditItemForm, ItemForm
 from .models import Category, Item
 
@@ -28,6 +28,7 @@ def add_item(request):
             item = form.save(commit=False)
             item.created_by = request.user
             item.save()
+            messages.success(request,'Added successfully')
             return redirect("item_detail", id=item.id)
         else:
             form = ItemForm()
@@ -41,8 +42,10 @@ def edit_item(request, id=id):
     if request.method == "POST":
         form = EditItemForm(request.POST, request.FILES, instance=item)
         if form.is_valid():
-            form.save()
-            return redirect("dashboard")
+            item = form.save(commit=False)
+            item.save()
+            messages.info(request,'Updated successfully')
+            return redirect("item_detail",id=item.id)
     else:
         form = EditItemForm(instance=item)
     context = {"form": form}
