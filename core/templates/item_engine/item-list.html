@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid mb-5">
+    <!-- Background image -->
+<div
+class="bg-image"
+style="
+  background-image: url('https://media.istockphoto.com/id/1151038205/vector/happy-people-doing-grocery-shopping-online.jpg?s=170667a&w=0&k=20&c=fm-s3mn1tOKotj4HmtqF_Ub1FvoKzXJhA_EIb04Ac0k=');
+  height: 400px;
+"
+></div>
+<!-- Background image -->
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action ="{% url 'item_list'%}" method="GET" class="input-group">
+                <input type="search" name="query" value="{{query}}" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" required/>
+                <button type="submit" class="btn btn-outline-primary">search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container my-4">
+    
+    <div class="row">
+        
+        <div class="col-md-3 p-2 border-start">
+            <h3>Categories </h3>
+        <hr>
+        {% for category in categories %}
+            <div class="list-group list-group-light">
+               <!-- <a href="#" class="list-group-item list-group-item-action px-3 border-0 active" aria-current="true">
+                  The current link item</a> -->
+                    
+                    <a href="{% url 'item_list' %}?query={{query}}&category={{category.id}}" class="list-group-item list-group-item-action px-3 border-0">{{category.name}}</a>
+                
+              </div>
+              {% endfor %}
+
+              <div class="text-center"> 
+                <p>Clear Filter</p>
+                <a href="{% url 'item_list' %}" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-xmark"></i> clear</a>
+              </div>
+              
+           </div>
+        {% if items %}
+        <div class="col-md-8 border-lg shadow">
+            <div class="row">
+               
+                {% for each in items %}
+                <div class="col-md-4 my-4 ml-1 p-2 ">
+                    <div class="card">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                          <img style="height: 250px;" src="{{each.item_image.url}}" class="img-fluid"/>
+                          <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                          </a>
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">{{each.name}}</h5>
+                          <p class="card-text">{{each.description| truncatechars:80}}</p>
+                          
+                        </div>
+                      </div>
+                     
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    
+        {% endif %}
+    </div>
+</div>
+</div>
+
+{% endblock %}
