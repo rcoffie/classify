@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
+from django.db.models import Q
 from .forms import EditItemForm, ItemForm
 from .models import Category, Item
 from django.contrib.auth.decorators import login_required
@@ -7,8 +8,17 @@ from django.contrib.auth.decorators import login_required
 
 
 def item_list(request):
+    query = request.GET.get('query','')
+    category_id = request.GET.get('category', 0 )
+    categories = Category.objects.all()
     items = Item.objects.filter(is_sold=False)
-    context = {'items':items}
+    if category_id:
+        items = Item.objects.filter(category_id=category_id)
+    if query:
+        items = items.filter(
+            Q(name__icontains=query)| Q(description__icontains=query)
+        )
+    context = {'items':items,'query':query,'categories':categories,'category_id':category_id}
     return render(request, 'item_engine/item-list.html',context)
 
 def item_detail(request, id):
@@ -21,6 +31,7 @@ def item_detail(request, id):
     context = {
         "item": item,
         "related_items": related_items,
+        'category_id':int(category_id),
     }
     return render(request, "item_engine/item-detail.html", context)
 

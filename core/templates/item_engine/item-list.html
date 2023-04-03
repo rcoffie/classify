@@ -12,27 +12,40 @@ style="
 ></div>
 <!-- Background image -->
 </div>
+
 <div class="container">
     <div class="row">
-        
-        <form class="input-group">
-            <input type="search" name="query" class="form-control rounded" placeholder="Search Item" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" class="btn btn-outline-primary">search</button>
-        </form>
+        <div class="col-md-12">
+            <form action ="{% url 'item_list'%}" method="GET" class="input-group">
+                <input type="search" name="query" value="{{query}}" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" required/>
+                <button type="submit" class="btn btn-outline-primary">search</button>
+            </form>
+        </div>
     </div>
 </div>
+
 <div class="container my-4">
     
     <div class="row">
+        
         <div class="col-md-3 p-2 border-start">
+            <h3>Categories </h3>
+        <hr>
+        {% for category in categories %}
             <div class="list-group list-group-light">
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 active" aria-current="true">
-                  The current link item</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0">A second link item</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0">A third link item</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0">A fourth link item</a>
-                <a class="list-group-item list-group-item-action px-3 border-0 disabled">A disabled link item</a>
+               <!-- <a href="#" class="list-group-item list-group-item-action px-3 border-0 active" aria-current="true">
+                  The current link item</a> -->
+                    
+                    <a href="{% url 'item_list' %}?query={{query}}&category={{category.id}}" class="list-group-item list-group-item-action px-3 border-0">{{category.name}}</a>
+                
               </div>
+              {% endfor %}
+
+              <div class="text-center"> 
+                <p>Clear Filter</p>
+                <a href="{% url 'item_list' %}" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-xmark"></i> clear</a>
+              </div>
+              
            </div>
         {% if items %}
         <div class="col-md-8 border-lg shadow">
@@ -59,13 +72,7 @@ style="
             </div>
             
         </div>
-        {% else %}
-        <div class="alert alert-dark" role="alert">
-            <h4 class="alert-heading">Well done!</h4>
-            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-            <hr>
-            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-          </div>
+    
         {% endif %}
     </div>
 </div>
