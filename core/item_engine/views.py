@@ -6,6 +6,11 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
+def item_list(request):
+    items = Item.objects.filter(is_sold=False)
+    context = {'items':items}
+    return render(request, 'item_engine/item-list.html',context)
+
 def item_detail(request, id):
     item = get_object_or_404(Item, id=id)
     related_items = Item.objects.filter(
