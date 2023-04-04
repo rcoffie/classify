@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # installed apps 
     'pages',
     'item_engine',
+    'conversation',
 
     #packages 
     'crispy_forms',
