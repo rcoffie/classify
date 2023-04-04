@@ -33,7 +33,14 @@
     * create a dashboard link in navbar
     * Allow auth user to delete 
     * Allow user to edit item posted, create separate form
-    * Add item page to list all unsold items in the database
+    * Add item page to list all unsold items in the database 
+    * create search for items
+    * create a new app call conversation ,
+    * add models and make migrations 
+    * create forms for conversationMessage model 
+    * create conversation view 
+    * create url for the conversation app 
+    * create template for the conversation app 
     * configure login_url , login_redirect_url, logout_redirect_url
 * Models
     * Category fields  
@@ -47,4 +54,13 @@
       * created_by&rarr; Foreignkey to User model
       * category &rarr; Foreignkey to Category model
       * image &rarr; imagefield
-
+    * Conversation 
+       * item &rarr; FK &rarr; Item
+       * members &rarr; MtM &rarr; User
+       * created_at 
+       * modified_at 
+    * Conversation message 
+      * conversation &rarr; FK &rarr; conversation 
+      * TextField
+      * created_by
+      * created_at
