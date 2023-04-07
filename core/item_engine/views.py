@@ -53,4 +53,4 @@ def delete_item(request, id):
     item = get_object_or_404(Item, id=id)
     item.delete()
     return redirect("dashboard")
-    print("item deleted")
+    
