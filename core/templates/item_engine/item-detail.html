@@ -17,7 +17,7 @@
                <p>GH₵ {{item.price}}</p>
                <p class=""><span><small>{{item.created_on|naturaltime}}</small></span>   </p>
                {% if request.user != item.created_by %}
-               <span> <a href="{% url 'new' item.id %}" type="button" class="btn btn-primary">Primary</button> </a>
+               <span> <a href="{% url 'new' item.id %}" type="button" class="btn btn-primary ">Contact Seller</button> </a>
                {% endif %}
               </div>
         </div>

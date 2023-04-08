@@ -11,7 +11,7 @@ from .forms import SignUpForm
 # Create your views here.
 
 
-@login_required(login_url="signup")
+@login_required(login_url="login")
 def dashboard(request):
     items = Item.objects.filter(created_by=request.user)
     context = {"items": items}

@@ -53,6 +53,7 @@ style="
                
                 {% for each in items %}
                 <div class="col-md-4 my-4 ml-1 p-2 ">
+                  <a href="{% url 'item_detail' each.id %}">
                     <div class="card">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                           <img style="height: 250px;" src="{{each.item_image.url}}" class="img-fluid"/>
@@ -66,7 +67,7 @@ style="
                           
                         </div>
                       </div>
-                     
+                    </a>
                 </div>
                 {% endfor %}
             </div>
