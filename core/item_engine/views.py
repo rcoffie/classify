@@ -79,6 +79,5 @@ def edit_item(request, id=id):
 def delete_item(request, id):
     item = get_object_or_404(Item, id=id)
     item.delete()
-    messages.info(request,"item deleted successfully")
+    messages.info(request, "item deleted successfully")
     return redirect("dashboard")
-    
