@@ -1,16 +1,26 @@
 {% extends 'base.html' %}
-
+{% load humanize %}
 
 {% block content %}
 <div class="container">
     <div class="row"> 
         <div class="col-md-8">
+        
          {% for message in conversation.messages.all %}
-        <p class=""> {{message.created_by.username}} | {{message.created_at}}</p>
-          
-          <p class="bg-primary">{{message.content}}</p>
+      
+         <div class="card my-2">
+            <div class="card-header"  {% if request.user == message.created_by %} style="background: #a2c2f4 " {%endif%}>
+              {{message.created_by.username | title}}
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>{{message.content}}</p>
+                <footer class="blockquote-footer"> <small> {{message.created_at | naturaltime}} </small> </footer>
+              </blockquote>
+            </div>
+          </div>
          {% endfor %}
-
+           
          <form action="." method="POST">
             {%csrf_token%}
             {{form.as_p}}
