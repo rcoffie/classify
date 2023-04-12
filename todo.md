@@ -41,6 +41,7 @@
     * create conversation view 
     * create url for the conversation app 
     * create template for the conversation app 
+    * create the inbox view , enable login required 
     * configure login_url , login_redirect_url, logout_redirect_url
 * Models
     * Category fields  
