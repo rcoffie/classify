@@ -4,8 +4,8 @@ from item_engine.models import Item
 # Create your models here.
 
 class Conversation(models.Model):
-    item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    members = models.ManyToManyField(User)
+    item = models.ForeignKey(Item, related_name="conversations", on_delete=models.CASCADE)
+    members = models.ManyToManyField(User, related_name='conversations')
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
@@ -14,7 +14,7 @@ class Conversation(models.Model):
 
 
 class ConversationMessage(models.Model):
-    conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
+    conversation = models.ForeignKey(Conversation, related_name='messages', on_delete=models.CASCADE)
     content = models.TextField() 
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)

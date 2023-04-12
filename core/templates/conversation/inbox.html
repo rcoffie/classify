@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>Conversation </h1>
+        
+           <div class="col-md-8">
+            <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                  <tr>
+                    <th>Name</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for conversation in conversations %}
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img
+                            src="{{conversation.item.item_image.url}}"
+                            alt=""
+                            style="width: 45px; height: 45px"
+                            class="rounded-circle"
+                            />
+                        {% for member in conversation.members.all %}
+                        {% if member != request.user %}
+                        <div class="ms-3">
+                          <p class="fw-bold mb-1">{{ member.username|title}} | {{ conversation.item.name| title }} </p>
+                          <p class="text-muted mb-0">{{ conversation.modified_at }}</p>
+                        </div>
+                      </div>
+                      {% endif %}
+                      {% endfor %}
+                    </td>
+                    <td>
+                      <p class="fw-normal mb-1">Software engineer</p>
+                      <p class="text-muted mb-0">IT department</p>
+                    </td>
+                    <td>
+                      <span class="badge badge-success rounded-pill d-inline">Active</span>
+                    </td>
+                    <td>Senior</td>
+                    <td>
+                      <a href="{% url 'conversation_detail' conversation.id %}"  type="button" class="btn btn-link btn-sm btn-rounded">
+                        View
+                      </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+           </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

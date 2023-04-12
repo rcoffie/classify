@@ -145,3 +145,4 @@ GitHub.sublime-settings
 */*/*/__pycache__/
 */*/__pycache__/
 */__pycache__/
+*.sqlite3
