@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import get_object_or_404, redirect, render
@@ -51,3 +51,8 @@ def login_request(request):
             messages.warning(request, "invalid username or password")
     form = AuthenticationForm()
     return render(request, "user_engine/login_request.html", {"form": form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect("home")
