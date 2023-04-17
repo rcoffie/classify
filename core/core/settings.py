@@ -28,12 +28,9 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", cast=bool)
 
-<<<<<<< HEAD
 
-=======
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['rcoffie.pythonanywhere.com','*']
->>>>>>> 88504da3774fed1e78b94872d324fd10aee46ea6
 
 
 # Application definition
