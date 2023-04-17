@@ -19,7 +19,7 @@
         <div class="col-md-12 shadow-lg">
             <div class="row justify-content-center m-2 p-2">
                 <div class="col-md-4 text-center">
-                  <h2>Header</h2>
+                  <h3>Header</h3>
                   <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi iusto nulla omnis
                     perspiciatis architecto id? Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum maxime cumque 
                     corporis sed hicmaiores ducimus. Consequuntur eveniet Lorem ipsum dolor sit amet consectetur adipisicing 
@@ -28,7 +28,7 @@
                     eligendi blanditiis facilis, itaque corrupti aut sed hic commodi, tempore, esse saepe!</p> 
                   </div>
                 <div class="col-md-4 text-center">
-                  <h2>Header</h2>
+                  <h3>Header</h3>
                   <p>  Lorem ipsum dolor, sit amet consectetur adipisicing
                     elit. Nostrum corporis quos, voluptatem voluptate facere  Lorem ipsum dolor sit amet consectetur adipisicing elit.
                      Nesciunt nemo nam voluptatibus Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil sit quae 
@@ -39,7 +39,7 @@
                    at.</p>
                  </div>
                 <div class="col-md-4 text-center">
-                  <h2>Header</h2>
+                  <h3>Header</h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aut sequi qui ipsam quia 
                     nemo. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore at maxime nihil consequatur, hic atque perferendis culpa, 
                     assumenda aspernatur exercitationem nisi! Quia officiis animi, quidem ipsam atque laudantium earum id?
@@ -56,7 +56,7 @@
       <h3 class="text-center">New Items</h3>
       {% for each in items%}
       
-        <a href="{% url 'item_detail' each.id %}" class="col-md-4 text-decoration-none "  >
+        <a href="{% url 'item_detail' each.id %}" class="col-md-4 text-decoration-none mt-2"  >
             <div class="card shadow-lg border-secondary">
               
                 <img style="height: 250px;"src="{{ each.item_image.url }}" class="card-img-top" alt="{{each.name}}"/>
