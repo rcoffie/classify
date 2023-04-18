@@ -139,7 +139,7 @@ GitHub.sublime-settings
 
 
 
-*.log
+# *.log
 *.pot
 *.pyc
 */*/*/__pycache__/
