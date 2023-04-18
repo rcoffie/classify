@@ -177,7 +177,7 @@ LOGGING = {
         'file': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
-            'filename': './logs/warning.log',
+            'filename': '../logs/warning.log',
         },
     },
     'loggers': {
