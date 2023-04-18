@@ -5,8 +5,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import EditItemForm, ItemForm
 from .models import Category, Item
-import logging, traceback 
-logger = logging.getLogger('django')
+
 
 # Create your views here.
 
