@@ -30,7 +30,7 @@ DEBUG = config("DEBUG", cast=bool)
 
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['rcoffie.pythonanywhere.com','*']
+ALLOWED_HOSTS = ["rcoffie.pythonanywhere.com", "*"]
 
 
 # Application definition
@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     # packages
     "crispy_forms",
     "crispy_bootstrap5",
-    'admin_honeypot',
+    "admin_honeypot",
 ]
 
 
@@ -169,4 +169,3 @@ try:
     }
 except Exception as e:
     pass
-
