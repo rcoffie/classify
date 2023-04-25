@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from .models import Conversation, ConversationMessage
+from .models import ConversationMessage
 
 
 class ConversationForm(ModelForm):

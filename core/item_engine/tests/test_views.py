@@ -71,6 +71,3 @@ class TestItemView(TestCase):
         self.client.login(username="testuser", password="testpassword")
         response = self.client.post(reverse('delete_item', args=[self.item.id]))
         self.assertEqual(response.status_code, 302)
-
-
-  
