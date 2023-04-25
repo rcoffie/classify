@@ -1,9 +1,16 @@
-from rest_framework import serializers 
 from item_engine.models import Item
+from rest_framework import serializers
 
 
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Item 
-        fields = ['id','name','description','price','is_sold','category','item_image']
- 
+        model = Item
+        fields = [
+            "id",
+            "name",
+            "description",
+            "price",
+            "is_sold",
+            "category",
+            "item_image",
+        ]

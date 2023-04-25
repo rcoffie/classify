@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from item_engine.models import Item
 
 from .forms import ConversationForm
-from .models import Conversation, ConversationMessage
+from .models import Conversation
 
 # Create your views here.
 
