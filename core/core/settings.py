@@ -51,6 +51,11 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "admin_honeypot",
+    'rest_framework',
+
+    # api
+    'item_engine_api',
+    'pages_api',
 ]
 
 

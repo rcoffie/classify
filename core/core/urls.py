@@ -25,4 +25,6 @@ urlpatterns = [
     path("item_engine/", include("item_engine.urls")),
     path("user_engine/", include("user_engine.urls")),
     path("inbox/", include("conversation.urls")),
+    path('item_engine_api/', include("item_engine_api.urls")),
+    path('pages_api/', include("pages_api.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
