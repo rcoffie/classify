@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from .models import Category, Item
+from .models import Item
 
 
 class ItemForm(ModelForm):
