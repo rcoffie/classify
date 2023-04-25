@@ -17,6 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path("admin/", include("admin_honeypot.urls", namespace="admin_honeypot")),
@@ -27,4 +28,6 @@ urlpatterns = [
     path("inbox/", include("conversation.urls")),
     path('item_engine_api/', include("item_engine_api.urls")),
     path('pages_api/', include("pages_api.urls")),
+    path('api/schema/', SpectacularAPIView.as_view(), name="schema"),
+    path('api/schema/docs/', SpectacularSwaggerView.as_view(url_name="schema")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

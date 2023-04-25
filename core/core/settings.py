@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "admin_honeypot",
     'rest_framework',
+    'drf_spectacular',
 
     # api
     'item_engine_api',
@@ -174,3 +175,17 @@ try:
     }
 except Exception as e:
     pass
+
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Classify API',
+    'DESCRIPTION': 'Classified network App',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
