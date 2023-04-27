@@ -1,4 +1,4 @@
-from item_engine.models import Item, Category
+from item_engine.models import Category, Item
 from rest_framework import serializers
 
 
@@ -18,8 +18,9 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Category 
+        model = Category
         fields = [
-            'id','name','user',
+            "id",
+            "name",
+            "user",
         ]
-
