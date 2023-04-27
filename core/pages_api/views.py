@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from pages_api.serializers import ItemSerializer, CategorySerializer
+from pages_api.serializers import CategorySerializer, ItemSerializer
 
 # Create your views here.
 
@@ -13,7 +13,7 @@ from pages_api.serializers import ItemSerializer, CategorySerializer
 class ListItem(APIView):
     @extend_schema(responses=ItemSerializer)
     def get(self, request, format=None):
-        item  = Item.objects.filter(is_sold=False)[0:3]
+        item = Item.objects.filter(is_sold=False)[0:3]
         serializer = ItemSerializer(item, many=True)
         return Response(serializer.data)
 
@@ -25,10 +25,9 @@ class ListItem(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class CategoryListView(APIView):
     def get(self, request, format=None):
         category = Category.objects.all()
         serializer = CategorySerializer(category, many=True)
         return Response(serializer.data)
-
-
