@@ -14,4 +14,7 @@ class ItemSerializer(serializers.ModelSerializer):
             "is_sold",
             "category",
             "item_image",
+            "created_on",
+            "updated_on",
         ]
+        read_only_fields = ["id","created_on","updated_on",]
