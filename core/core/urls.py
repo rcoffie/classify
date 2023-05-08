@@ -28,6 +28,7 @@ urlpatterns = [
     path("inbox/", include("conversation.urls")),
     path('item_engine_api/', include("item_engine_api.urls")),
     path('pages_api/', include("pages_api.urls")),
+    path('conversation_api/', include("conversation_api.urls")),
     path('api/schema/', SpectacularAPIView.as_view(), name="schema"),
     path('api/schema/docs/', SpectacularSwaggerView.as_view(url_name="schema")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
