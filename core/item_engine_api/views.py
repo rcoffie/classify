@@ -3,11 +3,21 @@ from item_engine.models import Item
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from rest_framework.decorators import permission_classes
 from item_engine_api.serializers import ItemSerializer
-
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics 
 # Create your views here.
 
+
+class ListItems(generics.ListAPIView):
+    queryset = Item.objects.filter(is_sold=False)
+    serializer_class = ItemSerializer
+
+class ItemDetail(generics.RetrieveAPIView):
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
+    
 
 class ItemListView(APIView):
     def get(self, request, format=None):
@@ -15,6 +25,7 @@ class ItemListView(APIView):
         serializer = ItemSerializer(item, many=True)
         return Response(serializer.data)
 
+    @permission_classes([IsAuthenticated])
     def post(self, request, format=None):
         serializer = ItemSerializer(data=request.data)
         if serializer.is_valid():
@@ -23,7 +34,8 @@ class ItemListView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class ItemDetailView(APIView):
+class UpdateItemView(APIView):
+    permission_classes = [IsAuthenticated]
     def get_object(self, pk):
         try:
             return Item.objects.get(pk=pk)
