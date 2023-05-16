@@ -7,6 +7,7 @@ from rest_framework.decorators import permission_classes
 from item_engine_api.serializers import ItemSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics 
+from item_engine_api.permissions import IsCreatorPermission
 # Create your views here.
 
 
@@ -35,7 +36,7 @@ class ItemListView(APIView):
 
 
 class UpdateItemView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsCreatorPermission]
     def get_object(self, pk):
         try:
             return Item.objects.get(pk=pk)
