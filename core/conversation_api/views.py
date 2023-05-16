@@ -9,9 +9,8 @@ from item_engine.models import Item
 from rest_framework.permissions import IsAuthenticated
 
 
-
-
 class ConversationList(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request, format=None):
         conversations = Conversation.objects.all() 
         serializer = ConversationSerializer(conversations, many=True)
@@ -25,6 +24,7 @@ class ConversationList(APIView):
 
 
 class ConversationDetails(APIView):
+    permission_classes = [IsAuthenticated]
     def get_object(self, pk):
         try:
             return Conversation.objects.get(pk=pk)
