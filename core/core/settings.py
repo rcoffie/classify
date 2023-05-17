@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "admin_honeypot",
     "rest_framework",
     "drf_spectacular",
+    'rest_framework.authtoken',
     # api
     "item_engine_api",
     "pages_api",
@@ -183,7 +184,8 @@ REST_FRAMEWORK = {
 
     ],
     'DEFAULT_AUTHENTICATION_CLASSES':[
-        'rest_framework.authentication.BasicAuthentication'
+        # 'rest_framework.authentication.BasicAuthentication'
+        'rest_framework.authentication.TokenAuthentication',
     ],
 }
 
