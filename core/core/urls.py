@@ -31,4 +31,5 @@ urlpatterns = [
     path('conversation_api/', include("conversation_api.urls")),
     path('api/schema/', SpectacularAPIView.as_view(), name="schema"),
     path('api/schema/docs/', SpectacularSwaggerView.as_view(url_name="schema")),
+    path('user_engine_api/', include("user_engine_api.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

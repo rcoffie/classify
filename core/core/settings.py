@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     # api
     "item_engine_api",
     "pages_api",
+    'user_engine_api',
+    'conversation_api',
 ]
 
 
